@@ -1,0 +1,37 @@
+﻿@model List<Recipe.Models.Recipe>
+
+@{
+    ViewBag.Title = "Recipe List";
+}
+
+<h2>Recipe List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Cuisine</th>
+            <th>Servings</th>
+            <th>Prep Time (minutes)</th>
+            <th>Cook Time (minutes)</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var recipe in Model)
+        {
+            <tr>
+                <td>@recipe.Id</td>
+                <td>@recipe.Title</td>
+                <td>@recipe.Cuisine</td>
+                <td>@recipe.Servings</td>
+                <td>@recipe.PreparationTime</td>
+                <td>@recipe.CookingTime</td>
+                <td>
+                    <a href="@Url.Action("Edit", "Recipe", new { id = recipe.Id })" class="btn btn-primary">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
